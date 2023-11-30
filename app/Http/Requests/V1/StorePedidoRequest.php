@@ -26,6 +26,9 @@ class StorePedidoRequest extends FormRequest
             //'tipo' => [Rule::in(['A','a','B','b'])] cria a regra que tipo so pode ter esses 4 valores
             'quantidade' => ['required'],
             'data' => ['required'],
+            'status' => ['required'],
+            'valor_total' => ['required'],
+            'retirada' => ['required'],
             'cliente_id' => ['required'],
             'fornecedor_id' => ['required'],
             'produto_id' => ['required'],

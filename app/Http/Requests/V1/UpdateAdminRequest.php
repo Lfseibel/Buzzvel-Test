@@ -5,7 +5,7 @@ namespace App\Http\Requests\V1;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateClienteRequest extends FormRequest
+class UpdateAdminRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,31 +23,20 @@ class UpdateClienteRequest extends FormRequest
     public function rules(): array
     {
         $method = $this->method();
-        $id = $this->route('cliente');
+        $id = $this->route('admin');
         if($method == 'PUT')
         {
             return [
-                'nome' => ['required'],
-                'telefone' => ['required'],
                 'senha' => ['required'],
-                'email' => ['required','email', Rule::unique('clientes', 'email')->ignore($id)],
-                'endereco' => ['required'],
-                'cpf' => ['required'],
-                'imagem_perfil' => [],
+                'email' => ['required','email', Rule::unique('admins', 'email')->ignore($id)],
             ];
         }
         else
         {
             return [
-                'nome' => ['sometimes','required'],
                 'senha' => ['sometimes','required'],
-                'email' => ['sometimes','required','email',Rule::unique('clientes', 'email')->ignore($id)],
-                'endereco' => ['sometimes','required'],
-                'cpf' => ['sometimes','required'],
-                'imagemPerfil' => [],
-                'telefone' => ['sometimes','required']
+                'email' => ['sometimes','required','email',Rule::unique('admin', 'email')->ignore($id)],
             ];
         }
-        
     }
 }

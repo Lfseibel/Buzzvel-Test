@@ -14,23 +14,12 @@ class Produto extends Model
         'valor',
         'descricao',
         'fornecedor_id',
-        'categoria_id',
-        'medida_id',
+        'disponivel'
     ];
 
     public function fornecedor()
     {
         return $this->belongsTo(Fornecedor::class);
-    }
-
-    public function categoria()
-    {
-        return $this->belongsTo(Categoria::class);
-    }
-
-    public function medida()
-    {
-        return $this->belongsTo(Medida::class);
     }
 
     public function imagens()
@@ -41,10 +30,5 @@ class Produto extends Model
     public function pedidos()
     {
         return $this->hasMany(Pedido::class);
-    }
-
-    public function tipos()
-    {
-        return $this->hasMany(Produtotipo::class);
     }
 }

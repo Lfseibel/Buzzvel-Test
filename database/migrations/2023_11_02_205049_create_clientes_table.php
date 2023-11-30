@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('email');
             $table->string('telefone');
-            $table->string('idade');
+            $table->string('cpf');
             $table->string('endereco');
             $table->string('imagem_perfil')->nullable();
             $table->string('senha');

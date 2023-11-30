@@ -12,12 +12,9 @@ class ProdutoFilter extends ApiFilter
     'nome' => ['eq'],
     'descricao' => ['eq'],
     'valor' => ['eq','gt','gte','lt','lte'],
-    'categoriaID' => ['eq','ne'],
-    'medidaID' => ['eq','ne'],
     'fornecedorID' => ['eq'],
     'fornecedor_id' => ['eq'],
-    'medida_id' => ['eq'],
-    'categoria_id' => ['eq']
+    'disponivel' => ['eq', 'ne']
   ];
 
   protected $columnMap = 

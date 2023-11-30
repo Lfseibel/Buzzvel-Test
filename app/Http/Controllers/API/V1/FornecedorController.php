@@ -44,11 +44,11 @@ class FornecedorController extends Controller
     {
         $requestData = $request->all();
 
-        if($request->imagemPerfil)
+        if($request->imagem_perfil)
         {
-            $imageName = Str::random(32).".".$request->imagemPerfil->getClientOriginalExtension();
-            $requestData['imagemPerfil'] = $imageName;
-            Storage::disk('public')->put($imageName, file_get_contents($request->imagemPerfil));
+            $imageName = Str::random(32).".".$request->imagem_perfil->getClientOriginalExtension();
+            $requestData['imagem_perfil'] = $imageName;
+            Storage::disk('public')->put($imageName, file_get_contents($request->imagem_perfil));
         }
         
         return new FornecedorResource(Fornecedor::create($requestData));

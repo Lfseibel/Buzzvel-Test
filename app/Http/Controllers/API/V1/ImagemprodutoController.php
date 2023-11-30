@@ -66,6 +66,6 @@ class ImagemprodutoController extends Controller
      */
     public function destroy(Imagemproduto $imagemproduto)
     {
-        //
+        $imagemproduto->delete();
     }
 }

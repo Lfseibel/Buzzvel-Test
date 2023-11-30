@@ -16,7 +16,9 @@ class FornecedorFilter extends ApiFilter
     'cnpj' => ['eq', 'gt', 'lt'],
     'telefone' => ['eq'],
     'imagemPerfil' => ['eq'],
-    'idade' => ['eq', 'gt', 'lt']
+    'descricao' => ['eq'],
+    'tipo' => ['eq'],
+    'aberto' => ['eq']
   ];
 
   protected $columnMap =

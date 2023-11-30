@@ -14,7 +14,7 @@ class ClienteFilter extends ApiFilter
     'endereco' => ['eq'],
     'email' => ['eq'],
     'senha' => ['eq'],
-    'idade' => ['eq', 'gt', 'lt'],
+    'cpf' => ['eq'],
     'imagemPerfil' => ['eq'],
     'telefone' => ['eq']
   ];

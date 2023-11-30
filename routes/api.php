@@ -1,16 +1,11 @@
 <?php
 
-use App\Http\Controllers\API\V1\CategoriaController;
+use App\Http\Controllers\API\V1\AdminController;
 use App\Http\Controllers\API\V1\ClienteController;
-use App\Http\Controllers\API\V1\EventoController;
 use App\Http\Controllers\API\V1\FornecedorController;
 use App\Http\Controllers\API\V1\ImagemprodutoController;
-use App\Http\Controllers\API\V1\MedidaController;
-use App\Http\Controllers\API\V1\MensagemController;
 use App\Http\Controllers\API\V1\PedidoController;
 use App\Http\Controllers\API\V1\ProdutoController;
-use App\Http\Controllers\API\V1\ProdutotipoController;
-use App\Http\Controllers\API\V1\TipoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,17 +30,10 @@ Route::group(['prefix' => 'v1' ], function(){
     Route::post('produtos/bulk', [ProdutoController::class, 'bulkStore']);
 
     
-
+    Route::apiResource('admins', AdminController::class);
     Route::apiResource('produtos', ProdutoController::class);
     Route::apiResource('clientes', ClienteController::class);
-    Route::apiResource('eventos', EventoController::class);
-    Route::apiResource('categorias', CategoriaController::class);
-    Route::apiResource('medidas', MedidaController::class);
     Route::apiResource('pedidos', PedidoController::class);
-    Route::apiResource('mensagens', MensagemController::class);
-    Route::apiResource('tipos', TipoController::class);
-    Route::apiResource('tiposprodutos', ProdutotipoController::class);
     Route::apiResource('imagemprodutos', ImagemprodutoController::class);
 
-    Route::post('/eventos/{eventoId}/attach/{pedidoId}', [EventoController::class, 'attachPedidoToEvento']);
 });

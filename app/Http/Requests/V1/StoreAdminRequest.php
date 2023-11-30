@@ -4,14 +4,14 @@ namespace App\Http\Requests\V1;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateTipoRequest extends FormRequest
+class StoreAdminRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class UpdateTipoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'senha' => ['required'],
+            'email' => ['required','email','unique:clientes'],
         ];
     }
 }

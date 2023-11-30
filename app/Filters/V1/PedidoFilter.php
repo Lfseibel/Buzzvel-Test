@@ -13,7 +13,10 @@ class PedidoFilter extends ApiFilter
     'data' => ['eq','lt','gt','lte','gte'],
     'produto_id' => ['eq'],
     'cliente_id' => ['eq'],
-    'fornecedor_id' => ['eq']
+    'fornecedor_id' => ['eq'],
+    'valor_total' => ['eq'],
+    'retirada' => ['eq'],
+    'status' => ['eq'],
   ];
 
   protected $columnMap =

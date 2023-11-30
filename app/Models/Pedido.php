@@ -14,7 +14,10 @@ class Pedido extends Model
         'data',
         'cliente_id',
         'fornecedor_id',
-        'produto_id'
+        'produto_id',
+        'status',
+        'valor_total',
+        'retirada',
     ];
 
     public function fornecedor()

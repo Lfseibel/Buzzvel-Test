@@ -23,17 +23,12 @@ class ClienteController extends Controller
         $filter = new ClienteFilter();
         $filterItems = $filter->transform($request); //[['column', 'operator', 'value']]
         
-        $includeEventos = $request->query('includeEventos');  
         
         $includePedidos = $request->query('includePedidos');  
 
 
         $clientes = Cliente::where($filterItems);
 
-        if($includeEventos)
-        {
-            $clientes = $clientes->with('eventos');
-        }
         if($includePedidos)
         {
             $clientes = $clientes->with('pedidos');

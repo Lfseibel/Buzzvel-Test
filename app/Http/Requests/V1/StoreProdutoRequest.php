@@ -25,6 +25,7 @@ class StoreProdutoRequest extends FormRequest
             'nome' => ['required'],
             'valor' => ['required', 'numeric'],
             'descricao' => ['required'],
+            'disponivel' => ['required'],
             'fornecedor_id' => ['required', 'integer'],
         ];
     }

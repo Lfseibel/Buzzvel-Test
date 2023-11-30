@@ -15,9 +15,11 @@ class Fornecedor extends Model
         'senha',
         'email',
         'endereco',
-        'idade',
+        'descricao',
         'imagemPerfil',
-        'telefone'
+        'telefone',
+        'tipo',
+        'aberto'
     ];
 
 
@@ -29,10 +31,5 @@ class Fornecedor extends Model
     public function pedidos()
     {
         return $this->hasMany(Pedido::class);
-    }
-
-    public function mensagens()
-    {
-        return $this->hasMany(Mensagem::class);
     }
 }

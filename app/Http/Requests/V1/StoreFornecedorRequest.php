@@ -30,8 +30,10 @@ class StoreFornecedorRequest extends FormRequest
             'senha' => ['required'],
             'email' => ['required','email','unique:fornecedors'],
             'endereco' => ['required'],
-            'idade' => ['required'],
-            'imagemPerfil' => ['image','mimes:jpeg,jpg,png,gif,svg','max:2048'],
+            'tipo' => ['required'],
+            'aberto' => ['required'],
+            'descricao' => ['required'],
+            'imagemPerfil' => ['nullable','image','mimes:jpeg,jpg,png,gif,svg','max:2048'],
             'telefone' => ['required']
         ];
     }

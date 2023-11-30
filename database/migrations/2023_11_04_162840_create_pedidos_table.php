@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('quantidade');
             $table->string('data');
+            $table->string('status');
+            $table->string('retirada');
+            $table->string('valor_total');
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');;
             $table->unsignedBigInteger('fornecedor_id');
@@ -24,14 +27,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('evento_pedido', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('pedido_id');
-            $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('evento_id');
-            $table->foreign('evento_id')->references('id')->on('eventos')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
-        });
+    
     }
 
     /**

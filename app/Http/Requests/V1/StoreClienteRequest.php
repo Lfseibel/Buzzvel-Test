@@ -29,7 +29,7 @@ class StoreClienteRequest extends FormRequest
             'senha' => ['required'],
             'email' => ['required','email','unique:clientes'],
             'endereco' => ['required'],
-            'idade' => ['required'],
+            'cpf' => ['required'],
             'imagem_perfil' => ['nullable','image','mimes:jpeg,jpg,png,gif,svg','max:2048'],
         ];
     }

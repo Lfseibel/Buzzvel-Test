@@ -19,10 +19,8 @@ class ProdutoResource extends JsonResource
             'nome' => $this->nome,
             'valor' => $this->valor,
             'descricao' => $this->descricao,
-            'categoriaId' => $this->categoria_id,
-            'medidaId' => $this->medida_id,
-            'fornecedorId' => $this->fornecedor_id,
-            'tipos' => $this->tipos()->count(),
+            'disponivel' => $this->disponivel,
+            'fornecedorId' => $this->fornecedor_id
         ];
     }
 }

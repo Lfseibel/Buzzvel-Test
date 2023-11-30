@@ -74,6 +74,13 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        //
+        $data = [
+            'mensagem' => 'Produto '.$produto->nome.' apagado com sucesso',
+        ];
+
+        // Returning JSON response
+        
+        $produto->delete();
+        return response()->json($data);
     }
 }

@@ -5,11 +5,12 @@ namespace App\Filters\V1;
 use Illuminate\Http\Request;
 use App\Filters\ApiFilter;
 
-class TipoFilter extends ApiFilter
+class AdminFilter extends ApiFilter
 {
   protected $safeParms = 
   [
-    'descricao' => ['eq'],
+    'email' => ['eq'],
+    'senha' => ['eq'],
   ];
 
   protected $columnMap =

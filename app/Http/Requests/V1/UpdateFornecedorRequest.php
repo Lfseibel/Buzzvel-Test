@@ -3,6 +3,7 @@
 namespace App\Http\Requests\V1;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateFornecedorRequest extends FormRequest
 {
@@ -22,6 +23,7 @@ class UpdateFornecedorRequest extends FormRequest
     public function rules(): array
     {
         $method = $this->method();
+        $id = $this->route('fornecedor');
 
         if($method == 'PUT')
         {
@@ -31,9 +33,11 @@ class UpdateFornecedorRequest extends FormRequest
                 //'tipo' => [Rule::in(['A','a','B','b'])] cria a regra que tipo so pode ter esses 4 valores
                 'cnpj' => ['required'],
                 'senha' => ['required'],
-                'email' => ['required','email'],
+                'email' => ['required','email','email',Rule::unique('fornecedors', 'email')->ignore($id)],
                 'endereco' => ['required'],
-                'idade' => ['required'],
+                'tipo' => ['required'],
+                'aberto' => ['required'],
+                'descricao' => ['required'],
                 'imagemPerfil' => [],
                 'telefone' => ['required']
             ];
@@ -48,7 +52,9 @@ class UpdateFornecedorRequest extends FormRequest
                 'senha' => ['sometimes','required'],
                 'email' => ['sometimes','required','email'],
                 'endereco' => ['sometimes','required'],
-                'idade' => ['sometimes','required'],
+                'tipo' => ['sometimes','required'],
+                'aberto' => ['sometimes','required'],
+                'descricao' => ['sometimes','required'],
                 'imagemPerfil' => [],
                 'telefone' => ['sometimes','required']
             ];

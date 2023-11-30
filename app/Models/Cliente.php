@@ -14,21 +14,10 @@ class Cliente extends Model
         'senha',
         'email',
         'endereco',
-        'idade',
-        'imagemPerfil',
+        'cpf',
+        'imagem_perfil',
         'telefone'
     ];
-
-
-    public function eventos()
-    {
-        return $this->hasMany(Evento::class);
-    }
-
-    public function mensagens()
-    {
-        return $this->hasMany(Mensagem::class);
-    }
 
     public function pedidos()
     {

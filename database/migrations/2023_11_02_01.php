@@ -16,12 +16,14 @@ return new class extends Migration
         Schema::create('fornecedors', function (Blueprint $table) {
             $table->id();
             $table->string('cnpj');
+            $table->string('descricao');
+            $table->string('aberto');
             $table->string('nome');
             $table->string('email');
+            $table->string('tipo');
             $table->string('telefone');
-            $table->string('idade');
             $table->string('endereco');
-            $table->string('imagemPerfil')->nullable();
+            $table->string('imagem_perfil')->nullable();
             $table->string('senha');
             $table->timestamps();
         });
