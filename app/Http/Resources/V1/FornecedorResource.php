@@ -19,6 +19,7 @@ class FornecedorResource extends JsonResource
             'cnpj' => $this->cnpj,
             'nprodutos' => $this->produtos()->count(),
             'endereco' => $this->endereco,
+            'descricao' => $this->descricao,
             'email' => $this->email,
             'tipo' => $this->tipo,
             'aberto' => $this->aberto,
