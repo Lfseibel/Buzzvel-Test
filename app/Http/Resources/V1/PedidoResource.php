@@ -24,6 +24,7 @@ class PedidoResource extends JsonResource
             'produto_id' => $this->produto_id,
             'fornecedor_id' => $this->fornecedor_id,
             'cliente_id' => $this->cliente_id,
+            'cliente' => ClienteResource::collection($this->whenLoaded('cliente')),
         ];
     }
 }
