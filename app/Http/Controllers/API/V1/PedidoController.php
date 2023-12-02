@@ -25,6 +25,7 @@ class PedidoController extends Controller
         $pedidos = Pedido::where($filterItems);
 
         
+        $pedidos = $pedidos->with('cliente');
         return new PedidoCollection($pedidos->paginate()->appends($request->query()));
     }
 
@@ -42,7 +43,7 @@ class PedidoController extends Controller
      */
     public function show(Pedido $pedido)
     {
-        return new PedidoResource($pedido);
+        return new PedidoResource($pedido->with('cliente'));
     }
 
     /**
