@@ -17,14 +17,15 @@ class PedidoResource extends JsonResource
         return [
             'id' => $this->id,
             'quantidade' => $this->quantidade,
-            'data' => $this->quantidade,
-            'status' => $this->quantidade,
-            'retirada' => $this->quantidade,
-            'valor_total' => $this->quantidade,
+            'data' => $this->data,
+            'status' => $this->status,
+            'retirada' => $this->retirada,
+            'valor_total' => $this->valor_total,
             'produto_id' => $this->produto_id,
             'fornecedor_id' => $this->fornecedor_id,
             'cliente_id' => $this->cliente_id,
             'cliente' => new ClienteResource($this->whenLoaded('cliente')),
+            'fornecedor' => new FornecedorResource($this->whenLoaded('fornecedor')),
         ];
     }
 }
