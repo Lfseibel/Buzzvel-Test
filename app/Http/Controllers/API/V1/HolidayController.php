@@ -21,7 +21,7 @@ class HolidayController extends Controller
     public function checkUser($check)
     {
         $user = Auth::user();
-
+        
         if ($check != $user->id) {
             $data = [
                 'message' => 'You do not have access to this holiday',
