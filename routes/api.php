@@ -1,13 +1,9 @@
 <?php
 
-use App\Http\Controllers\API\V1\AdminController;
-use App\Http\Controllers\API\V1\ClienteController;
-use App\Http\Controllers\API\V1\FornecedorController;
-use App\Http\Controllers\API\V1\ImagemprodutoController;
-use App\Http\Controllers\API\V1\PedidoController;
-use App\Http\Controllers\API\V1\ProdutoController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\API\V1\HolidayController;
+use App\Http\Controllers\API\V1\UserController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,20 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 // 'namespace' => 'App\Http\Controllers\Api\V1'
-Route::group(['prefix' => 'v1' ], function(){
-    Route::apiResource('fornecedores', FornecedorController::class);
-    Route::apiResource('fornecedor', FornecedorController::class, ['show','update','destroy']);
-    Route::post('produtos/bulk', [ProdutoController::class, 'bulkStore']);
 
-    
-    Route::apiResource('admins', AdminController::class);
-    Route::apiResource('produtos', ProdutoController::class);
-    Route::apiResource('clientes', ClienteController::class);
-    Route::apiResource('pedidos', PedidoController::class);
-    Route::apiResource('imagemprodutos', ImagemprodutoController::class);
+Route::post('v1/setup', [UserController::class, 'setup']);
 
+Route::group(['prefix'=>'v1', 'middleware' => 'auth:api'], function()
+{
+    Route::apiResource('holidays', HolidayController::class, ['only' => ['index', 'store']]);
+    Route::apiResource('holiday', HolidayController::class, ['only' => ['show', 'update', 'destroy']]);
+    Route::get('pdf/holiday/{id}', [HolidayController::class, 'pdf']);
+    Route::post('holidays/bulk', [HolidayController::class, 'bulkStore']);
 });
+
+
+// Route::prefix('v1')->group(function () {
+//     Route::apiResource('holidays', HolidayController::class);
+//     Route::apiResource('holiday', HolidayController::class, ['only' => ['show', 'update', 'destroy']]);
+//     Route::post('holidays/bulk', [HolidayController::class, 'bulkStore']);
+// });
+
