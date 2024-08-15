@@ -19,6 +19,10 @@ The Holiday Plan API allows users to manage holiday plans for the year 2024. Thi
 - **Location**: The location of the holiday plan.
 - **Participants** (Optional): List of participants in the holiday plan.
 
+## Challenges
+
+- **Unit testing**: While testing I found out that some POST were working even when they shouldn't, some I managed to solve, other I couldn't, hope to learn how to work with it better, as of now that was my best
+  
 # API Setup
 
 ### Step by Step
