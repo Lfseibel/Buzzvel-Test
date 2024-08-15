@@ -81,6 +81,8 @@ Access the project at
 
 ## API Endpoints
 
+- [/swaggerApi.html](More about the API documentation)
+
 ### Authentication
 
 - **POST /api/v1/setup**
