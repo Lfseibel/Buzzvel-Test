@@ -81,7 +81,7 @@ Access the project at
 
 ## API Endpoints
 
-- [More about the API documentation open /swaggerAPI.html](/swaggerApi.html)
+- [More about the API documentation dowload and open /swaggerAPI.html](/swaggerApi.html)
 
 ### Authentication
 
