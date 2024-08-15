@@ -1,64 +1,3 @@
-
-# Setup da API
-
-### Passo a passo
-Clone Repositório
-```sh
-git clone https://github.com/Lfseibel/Buzzvel-Test.git holiday_api
-```
-```sh
-cd holiday_api/
-```
-
-Atualize as variáveis de ambiente do arquivo .env
-```dosini
-APP_NAME="Nome que desejar"
-APP_URL=http://localhost:8989
-
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=nome_que_desejar_db
-DB_USERNAME=root
-DB_PASSWORD=root
-
-CACHE_DRIVER=redis
-QUEUE_CONNECTION=redis
-SESSION_DRIVER=redis
-
-REDIS_HOST=redis
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-```
-
-Suba os containers do projeto
-```sh
-docker-compose up -d
-```
-
-Acesse o container app com o bash
-```sh
-docker-compose exec app bash
-```
-
-Instale as dependências do projeto
-```sh
-composer install
-```
-
-Gere a key do projeto Laravel
-```sh
-php artisan key:generate
-```
-
-Gere a key do projeto Laravel
-```sh
-php artisan migrate
-```
-
-Acesse o projeto
-[http://localhost:8989](http://localhost:8989)
-
 # Holiday Plan API
 
 ## Overview
@@ -79,6 +18,66 @@ The Holiday Plan API allows users to manage holiday plans for the year 2024. Thi
 - **Date**: The date of the holiday plan in `YYYY-MM-DD` format.
 - **Location**: The location of the holiday plan.
 - **Participants** (Optional): List of participants in the holiday plan.
+
+# API Setup
+
+### Step by Step
+Clone Repository
+```sh
+git clone https://github.com/Lfseibel/Buzzvel-Test.git holiday_api
+```
+```sh
+cd holiday_api/
+```
+
+Update the environment variables in the .env file to your liking
+```dosini
+APP_NAME="Nome que desejar"
+APP_URL=http://localhost:8989
+
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=nome_que_desejar_db
+DB_USERNAME=root
+DB_PASSWORD=root
+
+CACHE_DRIVER=redis
+QUEUE_CONNECTION=redis
+SESSION_DRIVER=redis
+
+REDIS_HOST=redis
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+```
+
+Start the project containers
+```sh
+docker-compose up -d
+```
+
+Access the app container with bash
+```sh
+docker-compose exec app bash
+```
+
+Install the project dependencies
+```sh
+composer install
+```
+
+Generate the Laravel project key
+```sh
+php artisan key:generate
+```
+
+Run the Laravel migrations
+```sh
+php artisan migrate
+```
+
+Access the project at
+[http://localhost:8989](http://localhost:8989)
 
 ## API Endpoints
 
